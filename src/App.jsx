@@ -2,7 +2,7 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import GrandEntrance from './components/GrandEntrance';
 import RunawayButton from './components/RunawayButton';
 import LoveStats from './components/LoveStats';
-import MemoryMatch from './components/MemoryMatch';
+import JourneyTimeline from './components/JourneyTimeline';
 import LoveLetter from './components/LoveLetter';
 import Playlist from './components/Playlist';
 import GrandFinale from './components/GrandFinale';
@@ -17,7 +17,7 @@ function App() {
   const entranceRef = useRef(null);
   const runawayRef = useRef(null);
   const statsRef = useRef(null);
-  const memoryRef = useRef(null);
+  const timelineRef = useRef(null);
   const letterRef = useRef(null);
   const playlistRef = useRef(null);
   const finaleRef = useRef(null);
@@ -41,10 +41,10 @@ function App() {
   }, [scrollToRef]);
 
   const handleStatsComplete = useCallback(() => {
-    scrollToRef(memoryRef, 'memory');
+    scrollToRef(timelineRef, 'timeline');
   }, [scrollToRef]);
 
-  const handleMemoryComplete = useCallback(() => {
+  const handleTimelineComplete = useCallback(() => {
     scrollToRef(letterRef, 'letter');
   }, [scrollToRef]);
 
@@ -71,8 +71,8 @@ function App() {
       case 'stats':
         scrollToRef(statsRef, 'stats');
         break;
-      case 'memory':
-        scrollToRef(memoryRef, 'memory');
+      case 'timeline':
+        scrollToRef(timelineRef, 'timeline');
         break;
       case 'letter':
         scrollToRef(letterRef, 'letter');
@@ -96,7 +96,7 @@ function App() {
       { id: 'entrance', ref: entranceRef },
       { id: 'runaway', ref: runawayRef },
       { id: 'stats', ref: statsRef },
-      { id: 'memory', ref: memoryRef },
+      { id: 'timeline', ref: timelineRef },
       { id: 'letter', ref: letterRef },
       { id: 'playlist', ref: playlistRef },
       { id: 'finale', ref: finaleRef },
@@ -145,9 +145,9 @@ function App() {
             <LoveStats onComplete={handleStatsComplete} />
           </section>
 
-          {/* Chapter 4: Memory Match Game */}
-          <section className="app__section" ref={memoryRef} id="chapter-memory">
-            <MemoryMatch onComplete={handleMemoryComplete} />
+          {/* Chapter 4: Our Journey */}
+          <section className="app__section" ref={timelineRef} id="chapter-timeline">
+            <JourneyTimeline onComplete={handleTimelineComplete} />
           </section>
 
           {/* Chapter 5: Sealed Love Letter */}

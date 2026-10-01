@@ -15,18 +15,24 @@ export default function JourneyNav({ onNavigate, activeSection }) {
   return (
     <nav className="journey-nav" aria-label="Surprise Chapters">
       <div className="journey-nav__track">
-        {SECTIONS.map((sec, idx) => (
-          <button
-            key={sec.id}
-            className={`journey-nav__dot ${activeSection === sec.id ? 'is-active' : ''}`}
-            onClick={() => onNavigate(sec.id)}
-            title={sec.label}
-            aria-label={sec.label}
-          >
-            <span className="journey-nav__icon">{sec.icon}</span>
-            <span className="journey-nav__tooltip">{sec.label}</span>
-          </button>
-        ))}
+        {SECTIONS.map((sec) => {
+          const section = sec.id === 'memory'
+            ? { ...sec, id: 'timeline', label: 'Our Journey', icon: '♥' }
+            : sec;
+
+          return (
+            <button
+              key={section.id}
+              className={`journey-nav__dot ${activeSection === section.id ? 'is-active' : ''}`}
+              onClick={() => onNavigate(section.id)}
+              title={section.label}
+              aria-label={section.label}
+            >
+              <span className="journey-nav__icon">{section.icon}</span>
+              <span className="journey-nav__tooltip">{section.label}</span>
+            </button>
+          );
+        })}
       </div>
     </nav>
   );

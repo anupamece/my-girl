@@ -1,0 +1,81 @@
+.journey-timeline {
+  --timeline-line: rgba(212, 162, 78, 0.48);
+  background: #1c211d;
+  color: var(--text-cream);
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 6.5rem 1.5rem 5rem;
+}
+
+.journey-timeline__header { margin: 0 auto 4.5rem; max-width: 680px; text-align: center; }
+
+.journey-timeline__eyebrow, .journey-timeline__date {
+  color: var(--accent-gold); font-family: var(--font-body); font-size: 0.76rem; font-weight: 700;
+  letter-spacing: 0.08em; margin: 0 0 0.75rem; text-transform: uppercase;
+}
+
+.journey-timeline__header h2 {
+  color: var(--text-cream); font-family: var(--font-heading); font-size: clamp(2.3rem, 5vw, 4.25rem);
+  font-weight: 600; line-height: 1.08; margin: 0;
+}
+
+.journey-timeline__intro {
+  color: var(--text-muted); font-family: var(--font-handwritten); font-size: clamp(1.35rem, 2.8vw, 1.8rem);
+  line-height: 1.35; margin: 1rem auto 0; max-width: 540px;
+}
+
+.journey-timeline__track { margin: 0 auto; max-width: 1040px; position: relative; }
+
+.journey-timeline__track::before {
+  background: var(--timeline-line); bottom: 4rem; content: ''; left: 50%; position: absolute;
+  top: 4rem; transform: translateX(-50%); width: 1px;
+}
+
+.journey-timeline__moment { display: grid; grid-template-columns: 1fr 68px 1fr; min-height: 235px; position: relative; }
+.journey-timeline__art, .journey-timeline__copy { align-self: center; }
+
+.journey-timeline__art {
+  background-image: url('../assets/journey-timeline-storyboard.png'); background-repeat: no-repeat; background-size: 200% 300%;
+  border: 1px solid rgba(212, 162, 78, 0.3); border-radius: 8px; box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+  height: 178px; width: min(100%, 265px);
+}
+
+.journey-timeline__art--first-talk { background-position: left top; }
+.journey-timeline__art--official { background-position: right top; }
+.journey-timeline__art--storm { background-position: left center; }
+.journey-timeline__art--rebuild { background-position: right center; }
+.journey-timeline__art--goodbye { background-position: left bottom; }
+.journey-timeline__art--reunion { background-position: right bottom; }
+
+.journey-timeline__marker {
+  align-items: center; background: var(--accent-gold); border: 5px solid #1c211d; border-radius: 50%; color: #252218;
+  display: flex; grid-column: 2; grid-row: 1; height: 46px; justify-content: center; justify-self: center;
+  margin-top: 24px; position: relative; width: 46px; z-index: 1;
+}
+
+.journey-timeline__copy { background: #26241e; border-left: 2px solid var(--accent-rose); max-width: 375px; padding: 1.25rem 1.35rem; }
+.journey-timeline__copy h3 { color: var(--text-cream); font-family: var(--font-heading); font-size: clamp(1.4rem, 2.4vw, 1.85rem); font-weight: 600; line-height: 1.1; margin: 0 0 0.55rem; }
+.journey-timeline__copy p:last-child { color: var(--text-muted); font-family: var(--font-body); font-size: 0.98rem; line-height: 1.65; margin: 0; }
+
+.journey-timeline__moment--left .journey-timeline__art { grid-column: 1; justify-self: end; }
+.journey-timeline__moment--left .journey-timeline__copy { grid-column: 3; justify-self: start; }
+.journey-timeline__moment--right .journey-timeline__copy { grid-column: 1; justify-self: end; }
+.journey-timeline__moment--right .journey-timeline__art { grid-column: 3; justify-self: start; }
+
+.journey-timeline__continue {
+  align-items: center; background: var(--accent-orange); border: 0; border-radius: 6px; color: #1c211d; cursor: pointer;
+  display: flex; font-family: var(--font-body); font-size: 0.98rem; font-weight: 700; gap: 0.5rem; justify-content: center;
+  margin: 1.75rem auto 0; min-height: 48px; padding: 0.75rem 1.1rem;
+}
+.journey-timeline__continue:hover { background: var(--accent-gold); }
+.journey-timeline__continue:focus-visible { outline: 2px solid var(--text-cream); outline-offset: 3px; }
+
+@media (max-width: 720px) {
+  .journey-timeline { padding: 5rem 1rem 4rem; }
+  .journey-timeline__header { margin-bottom: 3rem; }
+  .journey-timeline__track::before { bottom: 2.5rem; left: 22px; top: 2.5rem; }
+  .journey-timeline__moment, .journey-timeline__moment--left, .journey-timeline__moment--right { display: grid; gap: 0.85rem; grid-template-columns: 45px minmax(0, 1fr); min-height: 0; padding-bottom: 2.5rem; }
+  .journey-timeline__marker { grid-column: 1; height: 44px; margin-top: 0; width: 44px; }
+  .journey-timeline__art, .journey-timeline__moment--left .journey-timeline__art, .journey-timeline__moment--right .journey-timeline__art { grid-column: 2; grid-row: 1; height: auto; justify-self: stretch; min-height: 188px; width: 100%; }
+  .journey-timeline__copy, .journey-timeline__moment--left .journey-timeline__copy, .journey-timeline__moment--right .journey-timeline__copy { grid-column: 2; grid-row: 2; justify-self: stretch; max-width: none; }
+}
