@@ -1,0 +1,214 @@
+.memory-match {
+  min-height: 100vh;
+  background-color: var(--bg-section);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.memory-match__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  z-index: 2;
+}
+
+.memory-match__header h2 {
+  font-family: var(--font-heading);
+  color: var(--text-cream);
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.memory-match__header p {
+  font-family: var(--font-handwritten);
+  color: var(--accent-gold);
+  font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+  margin: 0;
+}
+
+.memory-match__container {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  z-index: 2;
+}
+
+.memory-match__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+  perspective: 1000px;
+}
+
+@media (max-width: 580px) {
+  .memory-match__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.65rem;
+  }
+}
+
+.memory-match__card-wrapper {
+  aspect-ratio: 95 / 115;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.memory-match__card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.memory-match__card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.memory-match__card-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.memory-match__card-back {
+  background-color: var(--accent-deep);
+  border: 1px solid var(--accent-burgundy);
+  color: var(--accent-burgundy);
+  opacity: 0.9;
+}
+
+.leaf-pattern {
+  color: var(--accent-gold);
+  opacity: 0.6;
+}
+
+.memory-match__card-front {
+  background-color: #271f1a;
+  border: 1px solid rgba(212, 162, 78, 0.4);
+  transform: rotateY(180deg);
+}
+
+.memory-match__card.is-matched .memory-match__card-front {
+  box-shadow: 0 0 18px 2px rgba(212, 162, 78, 0.45);
+  border-color: var(--accent-gold);
+}
+
+.memory-match__icon {
+  color: var(--accent-gold);
+}
+
+.memory-match__toast {
+  position: absolute;
+  bottom: -3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent-deep);
+  color: var(--text-cream);
+  padding: 0.6rem 1.25rem;
+  border-radius: 2rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  white-space: nowrap;
+  border: 1px solid var(--accent-gold);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  text-align: center;
+}
+
+.memory-match__skip {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 4rem;
+  z-index: 2;
+  transition: color 0.2s ease;
+}
+
+.memory-match__skip:hover {
+  color: var(--accent-gold);
+}
+
+.memory-match__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(26, 20, 16, 0.88);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.memory-match__overlay-content {
+  text-align: center;
+  background-color: var(--bg-section);
+  padding: 2.5rem 2rem;
+  border-radius: 18px;
+  border: 1px solid var(--accent-gold);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.memory-match__sparkle {
+  color: var(--accent-gold);
+  margin-bottom: 0.75rem;
+}
+
+.memory-match__overlay-content h3 {
+  font-family: var(--font-heading);
+  color: var(--text-cream);
+  font-size: 1.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.memory-match__overlay-content p {
+  font-family: var(--font-body);
+  color: var(--accent-gold);
+  font-size: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.memory-match__continue {
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold));
+  color: var(--bg-dark);
+  font-weight: 700;
+  border: none;
+  padding: 0.85rem 1.8rem;
+  border-radius: 2rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(224, 122, 58, 0.4);
+}
+
+.memory-match__continue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(224, 122, 58, 0.6);
+}

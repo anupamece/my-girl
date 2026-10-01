@@ -1,0 +1,128 @@
+@import '@fontsource/playfair-display/400.css';
+@import '@fontsource/playfair-display/700.css';
+@import '@fontsource/caveat/400.css';
+@import '@fontsource/caveat/700.css';
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+@import '@fontsource/dm-sans/700.css';
+
+:root {
+  --bg-dark: #1a1410;
+  --bg-section: #1e1814;
+  --bg-section-alt: #221c16;
+  --accent-orange: #e07a3a;
+  --accent-rose: #d4878f;
+  --accent-gold: #d4a24e;
+  --text-cream: #faf0e6;
+  --text-muted: #b8a99a;
+  --accent-sage: #8a9a7b;
+  --accent-burgundy: #6b2d3e;
+  --accent-deep: #2a1f1a;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-handwritten: 'Caveat', cursive;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-dark);
+  color: var(--text-cream);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+::selection {
+  background-color: var(--accent-orange);
+  color: var(--bg-dark);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-burgundy);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-orange);
+}
+
+a {
+  color: var(--accent-orange);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-gold);
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.section--alt {
+  background-color: var(--bg-section-alt);
+}
+
+.section__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--text-cream);
+}
+
+.section__subtitle {
+  font-family: var(--font-handwritten);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--accent-gold);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1.25rem;
+  }
+}

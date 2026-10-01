@@ -1,0 +1,228 @@
+/* GrandEntrance.css */
+.grand-entrance {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--text-cream);
+  z-index: 0;
+}
+
+.grand-entrance__content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 800px;
+  text-align: center;
+  padding: 2rem;
+  width: 100%;
+}
+
+.grand-entrance__text-container {
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grand-entrance__action-container {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grand-entrance__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 400;
+  color: var(--text-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.icon-sparkle {
+  color: var(--accent-gold);
+}
+
+.grand-entrance__message-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.grand-entrance__message {
+  font-family: var(--font-handwritten);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--accent-rose);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.grand-entrance__subquote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--accent-gold);
+  margin: 0;
+}
+
+.icon-heart {
+  color: var(--accent-rose);
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  fill: var(--accent-rose);
+}
+
+/* Door Styles */
+.door-container {
+  position: relative;
+  width: 180px;
+  height: 280px;
+  perspective: 1200px;
+  margin: 0.5rem 0;
+}
+
+.door-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 10px solid var(--accent-deep);
+  border-bottom: none;
+  border-top-left-radius: 90px;
+  border-top-right-radius: 90px;
+  background-color: #0b0705;
+  box-sizing: border-box;
+}
+
+.door-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+  background: radial-gradient(ellipse at center, var(--accent-gold) 0%, var(--accent-orange) 65%, transparent 100%);
+  opacity: 0.9;
+  box-shadow: 0 0 60px var(--accent-gold), inset 0 0 40px #fff;
+  z-index: 1;
+}
+
+.door-leaf {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+  background-color: var(--bg-section);
+  border: 2px solid var(--accent-sage);
+  box-sizing: border-box;
+  transform-origin: left;
+  transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  box-shadow: 0 0 25px rgba(224, 122, 58, 0.35);
+  animation: pulse-door-glow 3s infinite alternate;
+}
+
+@keyframes pulse-door-glow {
+  0% { box-shadow: 0 0 10px rgba(224, 122, 58, 0.2); }
+  100% { box-shadow: 0 0 35px rgba(224, 122, 58, 0.7); }
+}
+
+.door-leaf.door-open {
+  transform: rotateY(-115deg);
+  animation: none;
+}
+
+.door-handle {
+  position: absolute;
+  top: 55%;
+  right: 18px;
+  width: 14px;
+  height: 14px;
+  background-color: var(--accent-gold);
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+}
+
+.open-button {
+  background-color: var(--accent-orange);
+  color: var(--text-cream);
+  border: none;
+  padding: 0.9rem 2.5rem;
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 500;
+  border-radius: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 20px rgba(224, 122, 58, 0.4);
+  transition: all 0.3s ease;
+  animation: pulse-btn 2s infinite;
+}
+
+.open-button:hover {
+  box-shadow: 0 6px 25px rgba(224, 122, 58, 0.8);
+  transform: translateY(-2px);
+  animation: none;
+}
+
+.enter-button {
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold));
+  color: var(--bg-dark);
+  font-weight: 700;
+  border: none;
+  padding: 0.9rem 2.2rem;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  border-radius: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  box-shadow: 0 6px 25px rgba(212, 162, 78, 0.4);
+  animation: pulse-btn 2s infinite;
+}
+
+@keyframes pulse-btn {
+  0% { box-shadow: 0 0 0 0 rgba(224, 122, 58, 0.6); }
+  70% { box-shadow: 0 0 0 14px rgba(224, 122, 58, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(224, 122, 58, 0); }
+}
+
+@media (max-width: 768px) {
+  .grand-entrance__content {
+    gap: 2rem;
+  }
+  
+  .door-container {
+    width: 150px;
+    height: 240px;
+  }
+}

@@ -1,0 +1,30 @@
+.app {
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  overflow-x: hidden;
+  position: relative;
+}
+
+.app__section {
+  position: relative;
+  width: 100%;
+}
+
+.app__journey {
+  width: 100%;
+}
+
+.app__journey--revealed {
+  animation: fadeInJourney 0.8s ease-out forwards;
+}
+
+@keyframes fadeInJourney {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
